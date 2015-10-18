@@ -1,0 +1,4 @@
+Run the code through the shell by running the command:
+> python3 SlidingPuzzleSolver.py
+
+The code is all functional, assuming it is given valid and solvable puzzles. It will break if given an incorrectly inputted puzzle, and will take extremely long if given an unsolvable puzzle.

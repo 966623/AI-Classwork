@@ -1,0 +1,11 @@
+1) I have uploaded the code to Github, tagged as Project_Iter1
+
+2) I did sliding puzzle, comparing straight line and manhattan distance for heuristics for an A star algorithm
+
+3) My hypothesis (changed after the proposal after reevaluation) was that Manhattan distance would produce a solution in less time and memory, since it more closely estimates the actual cost to the solution. The results support that hypothesis, with manhattan distance taking less time and space, with manhattan exploring 38% the number of nodes that straight line did.
+
+I tested 6 different 8-puzzles, with different optimal solution lengths from 5 to 30, and 1 15-puzzle, with a solution length of 32
+
+4) For additional work I also implemented linear conflict heuristic. This heuristic is an addition that is added to the straight line and manhattan heuristics. I hypothesized the heuristics with linear conflict added in would take less space and time than the counterpart without linear conflict. The data supports this hypothesis, since when linear conflict is included, the number of nodes explored drops by 12%.
+
+Overall, the data supports the idea that the heuristic estimate should try to be as close to the actual cost as possible, without overestimating it.
