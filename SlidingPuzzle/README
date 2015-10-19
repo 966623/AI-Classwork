@@ -1,4 +1,11 @@
 Run the code through the shell by running the command:
 > python3 SlidingPuzzleSolver.py
 
-The code is all functional, assuming it is given valid and solvable puzzles. It will break if given an incorrectly inputted puzzle, and will take extremely long if given an unsolvable puzzle.
+The program will tell you what to do from there.
+
+The code is all functional, assuming it is given valid and solvable puzzles. It may break if given an incorrectly inputted puzzle, and will take extremely long if given an unsolvable puzzle.
+
+My A star algorithm operates on nodes. Each node stores the data and functions for the puzzle. This includes steps taken, the actual puzzle board, and expanding the node. 
+
+In the A star algorithm, h(n) is either manhattan distance or straight line distance. For extra work it can also include linear conflict.
+g(n) is the number of moves taken to get to the node in question.
