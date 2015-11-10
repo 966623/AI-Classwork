@@ -1,0 +1,95 @@
+//======================\\
+||PROJECT PART 2 SUMMARY||
+\\======================//
+
+0: Submission
+-------------
+Code, summary, README, all submitted to github under my class repo 
+"repo-linx0486" under the tag "ProjectPart2". The parts that I worked on 
+are submitted there. The parts my collaborators worked on are submitted 
+wherever they submitted their parts.
+
+1: Part 1 complete data set
+---------------------------
+
+I did the sliding puzzle and collected data for 4 different sets of
+heuristics. These were Straight Line, Manhattahn, SL with Linear
+Conflict, and Mnhtn with Linear Conflict. 
+
+The data showed that the heuristic variants that include Linear Conflict
+did better than the counterparts without Linear Conflict. The exception
+is in the simplest of puzzles (solution length of 5), where any time
+gained from using Linear Conflict was lost calculating this heuristic
+in the first place.
+
+On average, including Linear conflict decreased runtime by about 25% and 
+nodes explored by about 12%
+
+The data also showed that Manhattan Distance heuristic always did better 
+than Straight Line. 
+
+Manhattan does better than SL by an increasing amount as puzzle size and 
+solution length increases. It took about 25% of the time and used about 
+55% of the space compared to SL for a 30 length 3x3 puzzle. It took 
+about 13% of the time and 38% of the space taken by SL for a 32 length 
+4x4 puzzle.
+
+The raw metrics measured were time taken to solve the puzzle, and number
+of nodes explored while solving the puzzle.
+
+Data was gathered from 6 3x3 puzzles and 2 4x4 puzzles. The 3x3 puzzles
+varied in solution length, from 5 to 30 in intervals of 5. The 4x4 
+puzzles had solution lengths of 25 and 32. No larger puzzles were tested 
+since the 4x4 32 length puzzle already pushed my computer to the max in 
+memory, and took over 9 hours to completely test.
+-----
+
+2: Part 2 Puzzles and algorithms
+--------------------------------
+I did cryptarithmetic using AC3, MAC, with a collaborator doing MRV 
+I did cross-math using MAC, with a collaborator doing AC3 and Forward-
+checking 
+-----
+
+3: Experiment proposal
+-------------------------------------------
+I will compare MAC with random node ordering to MAC with MRV node 
+ordering for Cryptarithmatic. I will collect data to measure the time 
+taken to solve the puzzle and the space taken. I predict that MRV will 
+perform faster than random node ordering, and explore less space.
+
+We found that MAC with random ordering can result in wildly different
+search time and space. This is because sometimes the randomness results 
+in more optimal pruning, and sometimes less optimal pruning. MRV will 
+have more consistent results due to the ordered nature. While standard 
+MAC may sometimes perform better than MRV, MRV will perform better on 
+average
+
+I will compare MAC with random node ordering to Forward Checking with 
+random node ordering in Cross-Math. I will collect data to measure the 
+time taken to solve the puzzle and the space taken. I predict that MAC 
+will perform faster and use less space, since it cuts out redundant 
+revisions.
+
+MAC has varying performance due to the random node ordering. FC likely 
+does too since it also has random ordering. On average MAC will still 
+perform better due to doing less revisions when the ordering is the same 
+as FC.
+
+4: Collaborators
+----------------
+Austin Kostreba - Cross-Math
+Wen Chuan Lee   - Cryptarithmetic
+-----
+
+5: Extra work
+-------------
+I applied DFS to both algorithms.
+For Crypt there was no pruning. DFS takes significantly more time and 
+space than MAC and Forward checking.
+
+
+For CrossMath, there was basic pruning of obviously wrong solutions. At 
+this small puzzle size, DFS performs faster than MAC, probably since the 
+revisions in the AC3 take more computation time. However, DFS takes up 
+much more space, around 10x more space then MAC. 

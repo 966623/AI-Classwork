@@ -18,16 +18,19 @@ puzzle8_goal.setAsGoal()
 
 size = 4
 puzzle15_32 = SlidingPuzzle(size, [[15,2,3,4],[5,6,7,8],[9,10,11,12],[13,1,14,0]])
+puzzle15_15 = SlidingPuzzle(size, [[5,1,4,8],[7,3,2,0],[13,6,10,12],[14,9,11,15]])
 puzzle15_goal = SlidingPuzzle(size)
 puzzle15_goal.setAsGoal()
 
 # Run a sample puzzle
 def runFastTests():
-    print(puzzle8_21)
-    solve_puzzle8_21_1 = AStar(puzzle8_21, puzzle8_goal, 0)
-    solve_puzzle8_21_2 = AStar(puzzle8_21, puzzle8_goal, 1)
-    solve_puzzle8_21_3 = AStar(puzzle8_21, puzzle8_goal, 0, True)
-    solve_puzzle8_21_4 = AStar(puzzle8_21, puzzle8_goal, 1, True)
+    puzzle = puzzle15_32
+    goal = puzzle15_goal
+    print(puzzle)
+    solve_puzzle8_21_1 = AStar(puzzle, goal, 0)
+    solve_puzzle8_21_2 = AStar(puzzle, goal, 1)
+    solve_puzzle8_21_3 = AStar(puzzle, goal, 0, True)
+    solve_puzzle8_21_4 = AStar(puzzle, goal, 1, True)
 
     print("\nSAMPLE PUZZLE STRAIGHT LINE")
     solution = solve_puzzle8_21_1.search()
@@ -51,10 +54,6 @@ def runFastTests():
 
 # Runs a custom puzzle
 def runCustomPuzzle(puzzle, size):
-    if type(puzzle) == int:
-        temp = size
-        size = puzzle
-        puzzle = temp
 
     # Make puzzle
     realSize = int(math.sqrt(size+1))

@@ -1,3 +1,5 @@
+__author__ = 'Sean Lin'
+
 from copy import deepcopy
 
 class menuNode(object):
@@ -31,7 +33,7 @@ class menuNode(object):
     def setChildren(self, nodes):
         self.children = nodes
 
-# Gives user choices to choose from
+# Gives user choices to choose from.
 # QUESTION (string) is the question to ask
 # OPTIONS  (string list) is the options to choose from
 # quitCommand is what to type to quit
@@ -74,23 +76,26 @@ class ChoicePrompt(object):
 
         return userInput
 
-# Lets user input a value, stores it in a dictionary
+# Lets user input a value, stores it in a dictionary.
 # QUESTION (string) is the question to ask
 # INPUTTYPE(type) is the type the input has to be
 # DICTIONARY is the dictionary the response is stored in
 # K is the key used
+# VALIDITY is a function that checks validity of the input
 class InputPrompt(object):
 
-    def __init__(self, question, inputType, dictionary, k):
+    def __init__(self, question, inputType, dictionary, k, validity = lambda x: True, errorMsg = ""):
         self.question = str(question)
         self.inputType = inputType
         self.dictionary = dictionary
         self.k = k
+        self.valid = validity
+        self.errorMsg = errorMsg
 
     def run(self):
         userInput = ""
         typeCorrect = False
-        while userInput == "" or not typeCorrect:
+        while userInput == "" or not typeCorrect or not self.valid(userInput):
             print(self.question)
             userInput = input(">")
             try:
@@ -114,7 +119,7 @@ class TextDisplay(object):
 
 # Runs a function, args uses values from an input dictionary
 # FUNCTION is the function to run
-# ARGS is the dictionary to use for arguments
+# ARGS is the dictionary to use for arguments, use None if there are no arguments
 # The function takes the dictionary elements as arguments, in alphabetic order by key.
 class FunctionRun(object):
 
@@ -126,10 +131,13 @@ class FunctionRun(object):
         self.args = args
 
     def run(self):
+        if self.args == None:
+            self.function()
+            return 0
+
         listArgs = []
-        for d in sorted(self.args.keys()):
-            print(d)
-            listArgs.append(self.args[d])
+        for e in sorted(self.args.keys()):
+            listArgs.append(self.args[e])
         self.function(*listArgs)
         return 0
 

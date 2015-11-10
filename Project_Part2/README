@@ -1,0 +1,21 @@
+Cryptarithmatic code is in the folder "Crypt".
+Run the code "Crypt_tester.py" with no arguements and follow the 
+instructions.
+I am not aware of any bugs in the code assuming proper test input.
+It runs tests from testCrypt.txt.
+It can only solve addition problems. It can only solve problems that 
+contain no more than 3 different letters in a column
+
+The constraints used in this AC3 constrain all letters to be different.
+It also constrains each column to add up properly. 
+
+Crossmath code is in the folder "CrossMath"
+Run the code "Cross_tester.py" with no arguements and follow the 
+instructions. It includes tests for AC3, MAC, and DFS. MRV code is 
+submitted separately by my collaborator for this problem.
+The code is complete.
+I am not aware of any bugs in the code, assuming proper test input.
+It runs tests from testCrossMath.txt, and can only solve 3x3 puzzles
+
+The constraints used in this AC3 constrain all space to be different.
+It also constrains each column and row by the given equations.

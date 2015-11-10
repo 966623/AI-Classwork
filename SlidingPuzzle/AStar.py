@@ -129,18 +129,26 @@ class AStar:
         startTime = time.time()
         bestNode = self.startNode
         self.heuristic(bestNode, True)
-
+        maxFrontier = 0
+        maxDepth = 0
         # Executes search, until solution is found, or we know there is no solution
         while bestNode.data != self.goalNode.data:
 
             self.expand(bestNode)
-            if len(self.frontier) == 0:
+            frontierLen = len(self.frontier)
+            if frontierLen == 0:
                 return None
+            elif frontierLen > maxFrontier:
+                maxFrontier = frontierLen
             bestNode = self.frontier[0]
+            depth = len(bestNode.moves)
+            if depth > maxDepth:
+                maxDepth = depth
 
 
         print("Nodes explored: " + str(len(self.explored)))
-
+        print("Max frontier size: " + str(maxFrontier))
+        print("Max depth explored: " + str(maxDepth))
         endTime = time.time()
         timeElapsed = endTime - startTime
         print("Time taken:     " + str(timeElapsed))
