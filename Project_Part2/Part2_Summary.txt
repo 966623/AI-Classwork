@@ -9,6 +9,8 @@ Code, summary, README, all submitted to github under my class repo
 are submitted there. The parts my collaborators worked on are submitted 
 wherever they submitted their parts.
 
+The files are in the folder "Project_Part2"
+
 1: Part 1 complete data set
 ---------------------------
 
